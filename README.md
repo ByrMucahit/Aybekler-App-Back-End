@@ -2,12 +2,12 @@
 
 # TO DO list
 ## 1. login
-    a. []  Login UML Diagram
+    a. [X]  Login UML Diagram
     b. []  Login Database Design
-    c. []  Logout UML Diagram
+    c. [X]  Logout UML Diagram
     d. []  Logout Database Design
 ## 2. HomePage
-    a. [] Center List UML Diagram
+    a. [X] Center List UML Diagram
     b. [] Center List Database Design
     ## 2.1 Navigator
         a. [] Refresh List UML Diagram
