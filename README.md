@@ -21,20 +21,20 @@
         i. [] Opening UML Diagram
         j. [] Opening Database Diagram
     ## 2.2 Filter  
-        a. [] Region And Occupation UML Diagram
+        a. [X] Region And Occupation UML Diagram
         b. [] Region And Occupation Database Diagram
-        c. [] Factory UML diagram
+        c. [X] Factory UML diagram
         d. [] Factory Database Diagram
     ## 2.3 Footer
-        a. [] Signals UML Diagram
+        a. [X] Signals UML Diagram
         b. [] Signals Database Diagram
-        c. [] User of System UML Diagram
+        c. [X] User of System UML Diagram
         d. [] User OF System Database Diagram
-        e. [] Calling-Person UML Diagram
+        e. [X] Calling-Person UML Diagram
         f. [] Calling-Person Database Diagram
-        g. [] Alert-Location UML Diagram
+        g. [X] Alert-Location UML Diagram
         h. [] Alert-Location Database Diagram
-        i. [] Copy UML Diagram
+        i. [X] Copy UML Diagram
         j. [] Download as EXCEL UML Diagram
         k. [] Download as EXCEL Database Diagram
 ## 3. Cards
