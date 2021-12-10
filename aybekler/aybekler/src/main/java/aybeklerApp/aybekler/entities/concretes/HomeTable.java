@@ -3,7 +3,7 @@ package aybeklerApp.aybekler.entities.concretes;
 
 import javax.persistence.Entity;
 
-import lombok.Data;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
