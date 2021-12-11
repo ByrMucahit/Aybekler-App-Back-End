@@ -11,8 +11,6 @@ import aybeklerApp.aybekler.entities.concretes.AllAccountSignals;
 @RequestMapping("/api/allaccountsignals")
 public class AllAccountSignalsController {
 	
-	
-	
 	@Autowired
 	public AllAccountSignalsController() {
 		super();
