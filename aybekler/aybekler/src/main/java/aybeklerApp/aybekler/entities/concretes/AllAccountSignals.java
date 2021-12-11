@@ -2,20 +2,54 @@ package aybeklerApp.aybekler.entities.concretes;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
+@Data
+@Entity
+@Table(name="allaccountsignals")
+@AllArgsConstructor
+@NoArgsConstructor
 public class AllAccountSignals {
-	
+	@Id
 	/* Common Variable */
+	@Column(name="code_of_account")
 	private int codeOfAccount;
+	
+	@Column(name="number_of_part")
 	private int numberOfPart;
+	
+	@Column(name="name_of_organisation")
 	private String nameOfOrganisation;
+	
+	@Column(name="dates")
 	private Date date;
+	
+	@Column(name="device")
 	private String device;
+	
+	@Column(name="code_of_alert")
 	private String codeOfAlert;
+	
+	@Column(name="location_or_user")
 	private String locationOrUser;
+	
+	@Column(name="messages")
 	private String message;
+	
+	@Column(name="operators")
 	private String operator;
 
-	
+	@Autowired
 	/* Constructor */
 	public AllAccountSignals(int codeOfAccount, int numberOfPart, String nameOfOrganisation, Date date, String device,
 			String codeOfAlert, String locationOrUser, String message, String operator) {
