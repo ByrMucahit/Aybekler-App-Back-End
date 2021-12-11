@@ -1,16 +1,7 @@
 package aybeklerApp.aybekler.entities.concretes;
 
 
-import javax.persistence.Entity;
 
-
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-
-@Entity
-@Getter @Setter @NoArgsConstructor // <--- THIS is it
 public class HomeTable {	
 	
 	/* Common Varaibles */
