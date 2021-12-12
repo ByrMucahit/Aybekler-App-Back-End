@@ -49,7 +49,11 @@ public class AllAccountSignals {
 	@Column(name="operators")
 	private String operator;
 
-	@Autowired
+	
+	public AllAccountSignals() {
+		
+	}
+	
 	/* Constructor */
 	public AllAccountSignals(int codeOfAccount, int numberOfPart, String nameOfOrganisation, Date date, String device,
 			String codeOfAlert, String locationOrUser, String message, String operator) {
