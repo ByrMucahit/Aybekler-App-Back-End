@@ -17,7 +17,6 @@ public class AybeklerApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AybeklerApplication.class, args);
-		/* Home Table Test */	
 	}      
 	    @Bean
 	    public Docket api() { 
