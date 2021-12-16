@@ -48,6 +48,12 @@ public class AllAccountSignals {
 	
 	@Column(name="operators")
 	private String operator;
+	
+	@Column(name="occupation")
+	private String occupation;
+	
+	@Column(name="periods")
+	private String period;
 
 	
 	public AllAccountSignals() {
@@ -56,7 +62,7 @@ public class AllAccountSignals {
 	
 	/* Constructor */
 	public AllAccountSignals(int codeOfAccount, int numberOfPart, String nameOfOrganisation, Date date, String device,
-			String codeOfAlert, String region, String message, String operator) {
+			String codeOfAlert, String region, String message, String operator, String occupation, String period) {
 		super();
 		this.codeOfAccount = codeOfAccount;
 		this.numberOfPart = numberOfPart;
@@ -67,6 +73,8 @@ public class AllAccountSignals {
 		this.region = region;
 		this.message = message;
 		this.operator = operator;
+		this.occupation = occupation;
+		this.period = period;
 	}
 
 
@@ -157,6 +165,24 @@ public class AllAccountSignals {
 
 	public void setOperator(String operator) {
 		this.operator = operator;
+	}
+	
+	public String getOccupation() {
+		return occupation;
+	}
+
+
+	public void setOccupation(String occupation) {
+		this.occupation = occupation;
+	}
+	
+	public String getPeriod() {
+		return period;
+	}
+
+
+	public void setPeriod(String period) {
+		this.period = period;
 	}
 	
 }

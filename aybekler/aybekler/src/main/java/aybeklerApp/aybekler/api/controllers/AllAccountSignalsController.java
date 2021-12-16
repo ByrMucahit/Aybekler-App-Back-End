@@ -40,7 +40,18 @@ public class AllAccountSignalsController {
 	
 	@GetMapping("/getAllByRegion")
 	public DataResult<List<AllAccountSignals>> getDataByRegion(@RequestParam("region") String region){
-		return this.allAccountSignalsService.getDataByLocationOrUser(region);
+		return this.allAccountSignalsService.getDataByRegion(region);
 	}
+	
+	@GetMapping("/getAllByOccupation")
+	public DataResult<List<AllAccountSignals>> getDataByOccupation(@RequestParam("occupation") String occupation){
+		return this.allAccountSignalsService.getDataByOccupation(occupation);
+	}
+	
+	@GetMapping("/getAllByPeriod")
+	public DataResult<List<AllAccountSignals>> getDataByPeriod(@RequestParam("period") String period){
+		return this.allAccountSignalsService.getDataByPeriod(period);
+	}
+	
 	
 }

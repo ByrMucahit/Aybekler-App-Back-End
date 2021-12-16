@@ -35,7 +35,7 @@ public class AllAccountSignalsManager implements AllAccountSignalsService {
 	@Override
 	public Result insertInto(AllAccountSignals allAccountSignals) {
 		this.allAccountSignalsDao.save(allAccountSignals);
-		return new SuccessResult("Product has been listed");
+		return new SuccessResult("Product has been added");
 	}
 
 	@Override
@@ -45,22 +45,24 @@ public class AllAccountSignalsManager implements AllAccountSignalsService {
 	}
 
 	@Override
-	public DataResult<List<AllAccountSignals>> getDataByLocationOrUser(String locationOrUser) {
+	public DataResult<List<AllAccountSignals>> getDataByRegion(String region) {
 		// TODO Auto-generated method stub
 		return new SuccessDataResult<List<AllAccountSignals>>
-		 (this.allAccountSignalsDao.getDataByRegion(locationOrUser),"Data has been listed");
+		 (this.allAccountSignalsDao.getDataByRegion(region),"Data has been listed");
 	}
 
 	@Override
 	public DataResult<List<AllAccountSignals>> getDataByOccupation(String occupation) {
 		// TODO Auto-generated method stub
-		return null;
+		return new SuccessDataResult<List<AllAccountSignals>>
+		(this.allAccountSignalsDao.getDataByOccupation(occupation));
 	}
 
 	@Override
 	public DataResult<List<AllAccountSignals>> getDataByPeriod(String period) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return new SuccessDataResult<List<AllAccountSignals>>
+		(this.allAccountSignalsDao.getDataByPeriod(period));
 	}
 
 	@Override
@@ -69,10 +71,5 @@ public class AllAccountSignalsManager implements AllAccountSignalsService {
 		return null;
 	}
 
-	@Override
-	public DataResult<List<AllAccountSignals>> getDataByClock(String hourOfStart, String hourOfFinish) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

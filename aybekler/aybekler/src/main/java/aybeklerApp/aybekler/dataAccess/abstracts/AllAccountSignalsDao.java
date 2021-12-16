@@ -10,5 +10,6 @@ import aybeklerApp.aybekler.entities.concretes.AllAccountSignals;
 public interface AllAccountSignalsDao extends JpaRepository<AllAccountSignals, Integer> {
 	
 	List<AllAccountSignals> getDataByRegion(String locationOrUser);
-
+	List<AllAccountSignals> getDataByOccupation(String occupation);
+	List<AllAccountSignals> getDataByPeriod(String period);
 }

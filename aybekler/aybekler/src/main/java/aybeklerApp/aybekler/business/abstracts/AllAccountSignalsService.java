@@ -11,9 +11,8 @@ public interface AllAccountSignalsService {
 	DataResult<List<AllAccountSignals>> getAll();
 	Result insertInto(AllAccountSignals allAccountSignals);
 	DataResult<List<AllAccountSignals>> printAsExcell();
-	DataResult<List<AllAccountSignals>> getDataByLocationOrUser(String locationOrUser);
+	DataResult<List<AllAccountSignals>> getDataByRegion(String region);
 	DataResult<List<AllAccountSignals>> getDataByOccupation(String occupation);
 	DataResult<List<AllAccountSignals>> getDataByPeriod(String period);
 	DataResult<List<AllAccountSignals>> getDataByDate(Date dateOfStart, Date dateOfEnd);
-	DataResult<List<AllAccountSignals>> getDataByClock(String hourOfStart, String hourOfFinish);
 	}
