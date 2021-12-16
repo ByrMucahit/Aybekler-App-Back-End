@@ -41,7 +41,7 @@ public class AllAccountSignals {
 	private String codeOfAlert;
 	
 	@Column(name="location_or_user")
-	private String locationOrUser;
+	private String region;
 	
 	@Column(name="messages")
 	private String message;
@@ -56,7 +56,7 @@ public class AllAccountSignals {
 	
 	/* Constructor */
 	public AllAccountSignals(int codeOfAccount, int numberOfPart, String nameOfOrganisation, Date date, String device,
-			String codeOfAlert, String locationOrUser, String message, String operator) {
+			String codeOfAlert, String region, String message, String operator) {
 		super();
 		this.codeOfAccount = codeOfAccount;
 		this.numberOfPart = numberOfPart;
@@ -64,7 +64,7 @@ public class AllAccountSignals {
 		this.date = date;
 		this.device = device;
 		this.codeOfAlert = codeOfAlert;
-		this.locationOrUser = locationOrUser;
+		this.region = region;
 		this.message = message;
 		this.operator = operator;
 	}
@@ -130,13 +130,13 @@ public class AllAccountSignals {
 	}
 
 
-	public String getLocationOrUser() {
-		return locationOrUser;
+	public String getRegion() {
+		return region;
 	}
 
 
-	public void setLocationOrUser(String locationOrUser) {
-		this.locationOrUser = locationOrUser;
+	public void setRegion(String region) {
+		this.region = region;
 	}
 
 

@@ -1,5 +1,6 @@
 package aybeklerApp.aybekler.business.concretes;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,34 +45,34 @@ public class AllAccountSignalsManager implements AllAccountSignalsService {
 	}
 
 	@Override
-	public DataResult<List<AllAccountSignals>> getDataByRegion() {
+	public DataResult<List<AllAccountSignals>> getDataByLocationOrUser(String locationOrUser) {
+		// TODO Auto-generated method stub
+		return new SuccessDataResult<List<AllAccountSignals>>
+		 (this.allAccountSignalsDao.getDataByRegion(locationOrUser),"Data has been listed");
+	}
+
+	@Override
+	public DataResult<List<AllAccountSignals>> getDataByOccupation(String occupation) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public DataResult<List<AllAccountSignals>> getDataByOccupation() {
+	public DataResult<List<AllAccountSignals>> getDataByPeriod(String period) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public DataResult<List<AllAccountSignals>> getDataByPeriod() {
+	public DataResult<List<AllAccountSignals>> getDataByDate(Date dateOfStart, Date dateOfEnd) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public DataResult<List<AllAccountSignals>> getDataByDate() {
+	public DataResult<List<AllAccountSignals>> getDataByClock(String hourOfStart, String hourOfFinish) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public DataResult<List<AllAccountSignals>> getDataByClock() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
 }
