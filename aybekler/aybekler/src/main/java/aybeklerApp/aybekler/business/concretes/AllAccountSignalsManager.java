@@ -1,5 +1,6 @@
 package aybeklerApp.aybekler.business.concretes;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -66,9 +67,17 @@ public class AllAccountSignalsManager implements AllAccountSignalsService {
 	}
 
 	@Override
-	public DataResult<List<AllAccountSignals>> getDataByDate(Date dateOfStart, Date dateOfEnd) {
+	public DataResult<List<AllAccountSignals>> getDataByDates(LocalDate dates) {
 		// TODO Auto-generated method stub
-		return null;
+		return new SuccessDataResult<List<AllAccountSignals>>
+		(this.allAccountSignalsDao.getDataByDates(dates), "Data has been listed on date.");
+	}
+
+	@Override
+	public DataResult<List<AllAccountSignals>> getDataByIntervals(LocalDate dates) {
+		// TODO Auto-generated method stub
+		return new SuccessDataResult<List<AllAccountSignals>>
+		(this.allAccountSignalsDao.getDataByInterval(dates),"data has been listed");
 	}
 
 

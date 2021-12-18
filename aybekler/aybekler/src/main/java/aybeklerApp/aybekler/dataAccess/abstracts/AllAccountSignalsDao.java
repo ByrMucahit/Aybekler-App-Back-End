@@ -1,4 +1,6 @@
 package aybeklerApp.aybekler.dataAccess.abstracts;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,4 +14,8 @@ public interface AllAccountSignalsDao extends JpaRepository<AllAccountSignals, I
 	List<AllAccountSignals> getDataByRegion(String locationOrUser);
 	List<AllAccountSignals> getDataByOccupation(String occupation);
 	List<AllAccountSignals> getDataByPeriod(String period);
+	List<AllAccountSignals> getDataByDates(LocalDate dates);
+	
+	@Query("select a from allaccountsignals a")
+	List<AllAccountSignals> getDataByInterval(LocalDate dates);
 }

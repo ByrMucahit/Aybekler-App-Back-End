@@ -1,5 +1,6 @@
 package aybeklerApp.aybekler.entities.concretes;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -32,7 +33,7 @@ public class AllAccountSignals {
 	private String nameOfOrganisation;
 	
 	@Column(name="dates")
-	private Date date;
+	private LocalDate dates;
 	
 	@Column(name="device")
 	private String device;
@@ -61,13 +62,13 @@ public class AllAccountSignals {
 	}
 	
 	/* Constructor */
-	public AllAccountSignals(int codeOfAccount, int numberOfPart, String nameOfOrganisation, Date date, String device,
+	public AllAccountSignals(int codeOfAccount, int numberOfPart, String nameOfOrganisation, LocalDate dates, String device,
 			String codeOfAlert, String region, String message, String operator, String occupation, String period) {
 		super();
 		this.codeOfAccount = codeOfAccount;
 		this.numberOfPart = numberOfPart;
 		this.nameOfOrganisation = nameOfOrganisation;
-		this.date = date;
+		this.dates = dates;
 		this.device = device;
 		this.codeOfAlert = codeOfAlert;
 		this.region = region;
@@ -108,13 +109,13 @@ public class AllAccountSignals {
 	}
 
 
-	public Date getDate() {
-		return date;
+	public LocalDate getDates() {
+		return dates;
 	}
 
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setDates(LocalDate dates) {
+		this.dates = dates;
 	}
 
 
