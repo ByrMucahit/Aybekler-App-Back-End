@@ -1,4 +1,5 @@
 package aybeklerApp.aybekler.dataAccess.abstracts;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
@@ -14,8 +15,10 @@ public interface AllAccountSignalsDao extends JpaRepository<AllAccountSignals, I
 	List<AllAccountSignals> getDataByRegion(String locationOrUser);
 	List<AllAccountSignals> getDataByOccupation(String occupation);
 	List<AllAccountSignals> getDataByPeriod(String period);
-	List<AllAccountSignals> getDataByDates(LocalDate dates);
+	@Query("SELECT a FROM AllAccountSignals a")
+	List<AllAccountSignals> getDataByDates(Timestamp dates);
+	/*List<AllAccountSignals> getDataByHour(String hour);
 	
-	@Query("select a from allaccountsignals a")
-	List<AllAccountSignals> getDataByInterval(LocalDate dates);
+	@Query("Select a from AllAccountSignals a")
+	List<AllAccountSignals> getDataByIntervalHour(String start, String finish);*/
 }

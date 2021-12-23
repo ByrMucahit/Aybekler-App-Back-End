@@ -1,5 +1,7 @@
 package aybeklerApp.aybekler.entities.concretes;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -9,6 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
+
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,7 +39,7 @@ public class AllAccountSignals {
 	private String nameOfOrganisation;
 	
 	@Column(name="dates")
-	private LocalDate dates;
+	private Timestamp dates;
 	
 	@Column(name="device")
 	private String device;
@@ -56,19 +62,17 @@ public class AllAccountSignals {
 	@Column(name="periods")
 	private String period;
 
-	
 	public AllAccountSignals() {
 		
 	}
 	
 	/* Constructor */
-	public AllAccountSignals(int codeOfAccount, int numberOfPart, String nameOfOrganisation, LocalDate dates, String device,
+	public AllAccountSignals(int codeOfAccount, int numberOfPart, String nameOfOrganisation, String device,Timestamp dates,
 			String codeOfAlert, String region, String message, String operator, String occupation, String period) {
 		super();
 		this.codeOfAccount = codeOfAccount;
 		this.numberOfPart = numberOfPart;
 		this.nameOfOrganisation = nameOfOrganisation;
-		this.dates = dates;
 		this.device = device;
 		this.codeOfAlert = codeOfAlert;
 		this.region = region;
@@ -76,6 +80,7 @@ public class AllAccountSignals {
 		this.operator = operator;
 		this.occupation = occupation;
 		this.period = period;
+		this.dates = dates;
 	}
 
 
@@ -107,17 +112,16 @@ public class AllAccountSignals {
 	public void setNameOfOrganisation(String nameOfOrganisation) {
 		this.nameOfOrganisation = nameOfOrganisation;
 	}
-
-
-	public LocalDate getDates() {
+	
+	public Timestamp getDates() {
 		return dates;
 	}
-
-
-	public void setDates(LocalDate dates) {
-		this.dates = dates;
+	
+	public void setDates() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date date = new Date();
+		this.dates = new Timestamp(date.getTime());
 	}
-
 
 	public String getDevice() {
 		return device;
@@ -185,7 +189,7 @@ public class AllAccountSignals {
 	public void setPeriod(String period) {
 		this.period = period;
 	}
-	
+
 }
 
 /*

@@ -1,5 +1,6 @@
 package aybeklerApp.aybekler.api.controllers;
 
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
@@ -57,13 +58,17 @@ public class AllAccountSignalsController {
 	}
 	
 	@GetMapping("/getAllByDates")
-	public DataResult<List<AllAccountSignals>> getDataByDates(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dates){
+	public DataResult<List<AllAccountSignals>> getDataByDates(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Timestamp dates){
 		return this.allAccountSignalsService.getDataByDates(dates);
 	}
 	
-	@GetMapping("getAllByInterval")
-	public DataResult<List<AllAccountSignals>> getDataByIntervals(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dates){
-		return this.allAccountSignalsService.getDataByIntervals(dates);
+	/*@GetMapping("/getAllByHour")
+	public DataResult<List<AllAccountSignals>> getDataByHour(String hour) {
+		return this.allAccountSignalsService.getDataByHour(hour);
 	}
 	
+	@GetMapping("/getAllByIntervalHour")
+	public DataResult<List<AllAccountSignals>> getDataByIntervalHour(String start, String finish){
+		return this.allAccountSignalsService.getDataByIntervalHour(start, finish);
+	}*/
 }
