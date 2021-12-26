@@ -2,6 +2,7 @@ package aybeklerApp.aybekler.business.concretes;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -13,25 +14,29 @@ import aybeklerApp.aybekler.core.utilities.results.DataResult;
 import aybeklerApp.aybekler.core.utilities.results.Result;
 import aybeklerApp.aybekler.core.utilities.results.SuccessDataResult;
 import aybeklerApp.aybekler.core.utilities.results.SuccessResult;
-import aybeklerApp.aybekler.dataAccess.abstracts.AllAccountSignalsDao;
+import aybeklerApp.aybekler.dataAccess.abstracts.dao.AllAccountSignalsDao;
+import aybeklerApp.aybekler.dataAccess.abstracts.dto.AllAccountSignalsByDto;
 import aybeklerApp.aybekler.entities.concretes.AllAccountSignals;
 import aybeklerApp.aybekler.entities.concretes.Muco;
+import aybeklerApp.aybekler.entities.dtos.AllAccountSignalsDto;
 
 @Service
 public class AllAccountSignalsManager implements AllAccountSignalsService {
 	
 	private AllAccountSignalsDao allAccountSignalsDao;
+	private AllAccountSignalsByDto allAccountSignalDto;
 	
 	@Autowired
-	public AllAccountSignalsManager(AllAccountSignalsDao allAccountSignalsDao) {
+	public AllAccountSignalsManager(AllAccountSignalsDao allAccountSignalsDao, AllAccountSignalsByDto allAccountSignalDto) {
 		super();
 		this.allAccountSignalsDao = allAccountSignalsDao;
+		this.allAccountSignalDto = allAccountSignalDto;
 	}
 
 	@Override
-	public DataResult<List<AllAccountSignals>> getAll() {
-		return new SuccessDataResult<List<AllAccountSignals>>
-			(this.allAccountSignalsDao.findAll(), "Data has been listed");
+	public DataResult<List<AllAccountSignalsDto>> getAll() {
+		return new SuccessDataResult<List<AllAccountSignalsDto>>
+			(this.allAccountSignalDto.findAll(), "Data has been listed");
 	}
 
 	@Override
@@ -41,37 +46,45 @@ public class AllAccountSignalsManager implements AllAccountSignalsService {
 	}
 
 	@Override
-	public DataResult<List<AllAccountSignals>> printAsExcell() {
+	public DataResult<List<AllAccountSignalsDto>> printAsExcell() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public DataResult<List<AllAccountSignals>> getDataByRegion(String region) {
+	public DataResult<List<AllAccountSignalsDto>> getDataByRegion(String region) {
 		// TODO Auto-generated method stub
-		return new SuccessDataResult<List<AllAccountSignals>>
-		 (this.allAccountSignalsDao.getDataByRegion(region),"Data has been listed");
+		return new SuccessDataResult<List<AllAccountSignalsDto>>
+		 (this.allAccountSignalDto.getDataByRegion(region),"Data has been listed");
 	}
 
 	@Override
-	public DataResult<List<AllAccountSignals>> getDataByOccupation(String occupation) {
+	public DataResult<List<AllAccountSignalsDto>> getDataByOccupation(String occupation) {
 		// TODO Auto-generated method stub
-		return new SuccessDataResult<List<AllAccountSignals>>
-		(this.allAccountSignalsDao.getDataByOccupation(occupation));
+		return new SuccessDataResult<List<AllAccountSignalsDto>>
+		(this.allAccountSignalDto.getDataByOccupation(occupation));
 	}
 
 	@Override
-	public DataResult<List<AllAccountSignals>> getDataByPeriod(String period) {
+	public DataResult<List<AllAccountSignalsDto>> getDataByPeriod(String period) {
 		
-		return new SuccessDataResult<List<AllAccountSignals>>
-		(this.allAccountSignalsDao.getDataByPeriod(period));
+		return new SuccessDataResult<List<AllAccountSignalsDto>>
+		(this.allAccountSignalDto.getDataByPeriod(period));
 	}
 
 	@Override
-	public DataResult<List<AllAccountSignals>> getDataByDates(Timestamp dates) {
-		return new SuccessDataResult<List<AllAccountSignals>>
-		(this.allAccountSignalsDao.getDataByDates(dates), "Data has been listed on date.");
+	public DataResult<List<AllAccountSignalsDto>> getDataByDates(String dates) {
+		return new SuccessDataResult<List<AllAccountSignalsDto>>
+		(this.allAccountSignalDto.getDataByDates(dates), "Data has been listed on date.");
 	}
+
+	@Override
+	public DataResult<List<AllAccountSignalsDto>> getDataByTimes(String times) {
+		return new SuccessDataResult<List<AllAccountSignalsDto>>
+		(this.allAccountSignalDto.getDataByTimes(times),"Data has been listed on times");
+	}
+
+	
 
 	/*@Override
 	public DataResult<List<AllAccountSignals>> getDataByHour(String hour) {

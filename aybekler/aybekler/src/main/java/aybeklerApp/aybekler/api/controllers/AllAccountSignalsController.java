@@ -2,6 +2,7 @@ package aybeklerApp.aybekler.api.controllers;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -19,6 +20,7 @@ import aybeklerApp.aybekler.core.utilities.results.DataResult;
 import aybeklerApp.aybekler.core.utilities.results.Result;
 import aybeklerApp.aybekler.entities.concretes.AllAccountSignals;
 import aybeklerApp.aybekler.entities.concretes.Muco;
+import aybeklerApp.aybekler.entities.dtos.AllAccountSignalsDto;
 
 @RestController
 @RequestMapping("/api/allaccountsignals")
@@ -33,7 +35,7 @@ public class AllAccountSignalsController {
 	}
 	
 	@GetMapping("/getall")
-	public DataResult<List<AllAccountSignals>> getAll() {
+	public DataResult<List<AllAccountSignalsDto>> getAll() {
 		return this.allAccountSignalsService.getAll();
 	}
 	
@@ -43,23 +45,28 @@ public class AllAccountSignalsController {
 	}
 	
 	@GetMapping("/getAllByRegion")
-	public DataResult<List<AllAccountSignals>> getDataByRegion(@RequestParam("region") String region){
+	public DataResult<List<AllAccountSignalsDto>> getDataByRegion(@RequestParam("region") String region){
 		return this.allAccountSignalsService.getDataByRegion(region);
 	}
 	
 	@GetMapping("/getAllByOccupation")
-	public DataResult<List<AllAccountSignals>> getDataByOccupation(@RequestParam("occupation") String occupation){
+	public DataResult<List<AllAccountSignalsDto>> getDataByOccupation(@RequestParam("occupation") String occupation){
 		return this.allAccountSignalsService.getDataByOccupation(occupation);
 	}
 	
 	@GetMapping("/getAllByPeriod")
-	public DataResult<List<AllAccountSignals>> getDataByPeriod(@RequestParam("period") String period){
+	public DataResult<List<AllAccountSignalsDto>> getDataByPeriod(@RequestParam("period") String period){
 		return this.allAccountSignalsService.getDataByPeriod(period);
 	}
 	
 	@GetMapping("/getAllByDates")
-	public DataResult<List<AllAccountSignals>> getDataByDates(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Timestamp dates){
+	public DataResult<List<AllAccountSignalsDto>> getDataByDates(@RequestParam("dates") String dates){
 		return this.allAccountSignalsService.getDataByDates(dates);
+	}
+	
+	@GetMapping("getAllByTimes")
+	public DataResult<List<AllAccountSignalsDto>> getDataByTimes(@RequestParam("times") String times){
+		return this.allAccountSignalsService.getDataByTimes(times);
 	}
 	
 	/*@GetMapping("/getAllByHour")

@@ -1,34 +1,24 @@
-package aybeklerApp.aybekler.entities.concretes;
+package aybeklerApp.aybekler.entities.dtos;
 
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
-
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 
 @Data
 @Entity
 @Table(name="allaccountsignals")
 @AllArgsConstructor
 @NoArgsConstructor
-public class AllAccountSignals {
+public class AllAccountSignalsDto {
 	@Id
-	/* Common Variable */
 	@Column(name="code_of_account")
 	private int codeOfAccount;
 	
@@ -58,14 +48,20 @@ public class AllAccountSignals {
 	
 	@Column(name="periods")
 	private String period;
+	
+	@Column(name="dates")
+	private String dates;
+	
+	@Column(name="times")
+	private String times;
 
-	public AllAccountSignals() {
+	public AllAccountSignalsDto() {
 		
 	}
 	
 	/* Constructor */
-	public AllAccountSignals(int codeOfAccount, int numberOfPart, String nameOfOrganisation, String device,
-			String codeOfAlert, String region, String message, String operator, String occupation, String period) {
+	public AllAccountSignalsDto(int codeOfAccount, int numberOfPart, String nameOfOrganisation, String device, String dates,
+			String codeOfAlert, String region, String message, String operator, String occupation, String period, String times) {
 		super();
 		this.codeOfAccount = codeOfAccount;
 		this.numberOfPart = numberOfPart;
@@ -77,7 +73,8 @@ public class AllAccountSignals {
 		this.operator = operator;
 		this.occupation = occupation;
 		this.period = period;
-		
+		this.dates = dates;
+		this.times = times;
 	}
 
 
@@ -178,28 +175,20 @@ public class AllAccountSignals {
 		this.period = period;
 	}
 
+	public String getDates() {
+		return dates;
+	}
+
+	public void setDates(String dates) {
+		this.dates = dates;
+	}
+
+	public String getTimes() {
+		return times;
+	}
+
+	public void setTimes(String times) {
+		this.times = times;
+	}
+
 }
-
-/*
- * Description:
- * --------------
- * This class contains details about all signals;
- * 
- * Parameters:
- * -------------
- * codeOfAccount: It's integer value that is passed into individual customer. We can reach any customer through this code.
- * numberOfPart: It's number of part.
- * nameOfOrganisation: It's name of company.
- * date: It's date that signals reached.
- * device: It's name of device.
- * codeOfAlert: It's private integer value. It's assigned into each device to reach device that we desired.
- * locationOrUser: It can be either name of location and name of user.
- * message: It's message releated signal.
- * operator: It's operator
- * 
- * Return:
- * -------------
- * null 
- *  */
-
-
