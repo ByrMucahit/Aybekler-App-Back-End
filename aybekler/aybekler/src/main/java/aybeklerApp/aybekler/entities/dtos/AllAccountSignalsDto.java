@@ -1,5 +1,7 @@
 package aybeklerApp.aybekler.entities.dtos;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
@@ -50,18 +52,18 @@ public class AllAccountSignalsDto {
 	private String period;
 	
 	@Column(name="dates")
-	private String dates;
+	private Date dates;
 	
 	@Column(name="times")
-	private String times;
+	private Time times;
 
 	public AllAccountSignalsDto() {
 		
 	}
 	
 	/* Constructor */
-	public AllAccountSignalsDto(int codeOfAccount, int numberOfPart, String nameOfOrganisation, String device, String dates,
-			String codeOfAlert, String region, String message, String operator, String occupation, String period, String times) {
+	public AllAccountSignalsDto(int codeOfAccount, int numberOfPart, String nameOfOrganisation, String device, Date dates,
+			String codeOfAlert, String region, String message, String operator, String occupation, String period, Time times) {
 		super();
 		this.codeOfAccount = codeOfAccount;
 		this.numberOfPart = numberOfPart;
@@ -175,20 +177,19 @@ public class AllAccountSignalsDto {
 		this.period = period;
 	}
 
-	public String getDates() {
+	public Date getDates() {
 		return dates;
 	}
 
-	public void setDates(String dates) {
+	public void setDates(Date dates) {
 		this.dates = dates;
 	}
 
-	public String getTimes() {
+	public Time getTimes() {
 		return times;
 	}
 
-	public void setTimes(String times) {
+	public void setTimes(Time times) {
 		this.times = times;
 	}
-
 }

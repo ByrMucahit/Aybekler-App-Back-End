@@ -1,9 +1,10 @@
 package aybeklerApp.aybekler.business.concretes;
 
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,13 +74,13 @@ public class AllAccountSignalsManager implements AllAccountSignalsService {
 	}
 
 	@Override
-	public DataResult<List<AllAccountSignalsDto>> getDataByDates(String dates) {
+	public DataResult<List<AllAccountSignalsDto>> getDataByDates(Date dates) {
 		return new SuccessDataResult<List<AllAccountSignalsDto>>
 		(this.allAccountSignalDto.getDataByDates(dates), "Data has been listed on date.");
 	}
 
 	@Override
-	public DataResult<List<AllAccountSignalsDto>> getDataByTimes(String times) {
+	public DataResult<List<AllAccountSignalsDto>> getDataByTimes(Time times) {
 		return new SuccessDataResult<List<AllAccountSignalsDto>>
 		(this.allAccountSignalDto.getDataByTimes(times),"Data has been listed on times");
 	}

@@ -1,4 +1,6 @@
 package aybeklerApp.aybekler.dataAccess.abstracts.dto;
+import java.sql.Date;
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -13,6 +15,6 @@ public interface AllAccountSignalsByDto extends JpaRepository<AllAccountSignalsD
 	List<AllAccountSignalsDto> getDataByRegion(String locationOrUser);
 	List<AllAccountSignalsDto> getDataByOccupation(String occupation);
 	List<AllAccountSignalsDto> getDataByPeriod(String period);
-	List<AllAccountSignalsDto> getDataByDates(String dates);
-	List<AllAccountSignalsDto> getDataByTimes(String times);
+	List<AllAccountSignalsDto> getDataByDates(Date dates);
+	List<AllAccountSignalsDto> getDataByTimes(Time times);
 }

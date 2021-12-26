@@ -1,9 +1,10 @@
 package aybeklerApp.aybekler.api.controllers;
 
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,12 +61,12 @@ public class AllAccountSignalsController {
 	}
 	
 	@GetMapping("/getAllByDates")
-	public DataResult<List<AllAccountSignalsDto>> getDataByDates(@RequestParam("dates") String dates){
+	public DataResult<List<AllAccountSignalsDto>> getDataByDates(@RequestParam("dates") Date dates){
 		return this.allAccountSignalsService.getDataByDates(dates);
 	}
 	
 	@GetMapping("getAllByTimes")
-	public DataResult<List<AllAccountSignalsDto>> getDataByTimes(@RequestParam("times") String times){
+	public DataResult<List<AllAccountSignalsDto>> getDataByTimes(@RequestParam("times") Time times){
 		return this.allAccountSignalsService.getDataByTimes(times);
 	}
 	
