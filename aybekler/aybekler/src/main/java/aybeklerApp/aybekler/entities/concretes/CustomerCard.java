@@ -2,45 +2,148 @@ package aybeklerApp.aybekler.entities.concretes;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
+/*
+ * Documents:
+ * ------------
+ * @Data: The Lombok annotation @Data simply tells to IDE or your build tool like Maven or Ant, to generate all the boilerplate code for you silently during compiler time.
+ * @Entity: The @Entity annonation specifies that the class in an entity and is mapped to a database table.
+ * @Table: The @Table annotation specifies that which table matches entity class from entity dimension. 
+ * */
+
+@Data
+@Entity
+@Table(name="customercard")
+@AllArgsConstructor
+@NoArgsConstructor
 public class CustomerCard {
 	
 	/* Common Variables */
+	@Id
+	@Column(name="code_of_account")
+	private int codeOfAccount;
+	
+	@Column(name="technical_service_organisation")
 	private String technicalServiceOrganisation;
+	
+	@Column(name="groups_of_customer")
 	private String groupsOfCustomer;
+	
+	@Column(name="table_of_signals")
 	private String tableOfSignals;
+	
+	@Column(name="type_of_communication")
 	private String typeOfCommunicate;
+	
+	@Column(name="branch_or_code_of_atm")
 	private String branchOrCodeOfAtm;
+	
+	@Column(name="ip_of_sytem")
 	private String ipOfSystem;
+	
+	@Column(name="mark_of_sytem")
 	private String markOfSystem;
+	
+	@Column(name="model_of_system")
 	private String modelOfSystem;
+	
+	@Column(name="date_of_connection")
 	private Date dateOfConnection;
+	
+	@Column(name="date_of_starting")
 	private Date dateOfStarting;
+	
+	@Column(name="date_of_finishing")
 	private Date dateOfFinishing;
+	
+	@Column(name="system_of_phone")
 	private String systemOfPhone;
+	
+	@Column(name="phone1")
 	private String phone1;
+	
+	@Column(name="phone2")
 	private String phone2;
+	
+	@Column(name="phone3")
 	private String phone3;
+	
+	@Column(name="faks_number1")
 	private String faksNumber1;
+	
+	@Column(name="faks_number2")
 	private String faksNumber2;
+	
+	@Column(name="atm_branch_code")
 	private String atmBranchCode;
+	
+	@Column(name="email1")
 	private String email1;
+	
+	@Column(name="email2")
 	private String email2;
+	
+	@Column(name="email3")
 	private String email3;
+	
+	@Column(name="email4")
 	private String email4;
+	
+	@Column(name="email5")
 	private String email5;
+	
+	@Column(name="sim_card_number")
 	private String simCardNumber;
+	
+	@Column(name="neighbordhood")
 	private String neighboorHood;
+	
+	@Column(name="avenue")
 	private String avenue;
+	
+	@Column(name="street")
 	private String street;
+	
+	@Column(name="number_of_outdoor")
 	private String numberOfOutDoor;
+	
+	@Column(name="address1")
 	private String address1;
+	
+	@Column(name="address2")
 	private String address2;
+	
+	@Column(name="country")
 	private String country;
+	
+	@Column(name="city")
 	private String city;
+	
+	@Column(name="town")
 	private String town;
+	
+	@Column(name="code_Of_Post")
 	private String codeOfPost;
+	
+	@Column(name="locate")
 	private String location;
+	
+	@Column(name="occupation_of_account")
 	private String occupationOfAccount;
+	
+	
+	public CustomerCard() {
+		
+	}
 	
 	/* Constructors */
 	public CustomerCard(String technicalServiceOrganisation, String groupsOfCustomer, String tableOfSignals,
@@ -50,7 +153,7 @@ public class CustomerCard {
 			String atmBranchCode, String email1, String email2, String email3, String email4, String email5,
 			String simCardNumber, String neighboorHood, String avenue, String street, String numberOfOutDoor,
 			String address1, String address2, String country, String city, String town, String codeOfPost,
-			String location, String occupationOfAccount) {
+			String location, String occupationOfAccount, int codeOfAccount) {
 		super();
 		this.technicalServiceOrganisation = technicalServiceOrganisation;
 		this.groupsOfCustomer = groupsOfCustomer;
@@ -88,6 +191,7 @@ public class CustomerCard {
 		this.codeOfPost = codeOfPost;
 		this.location = location;
 		this.occupationOfAccount = occupationOfAccount;
+		this.codeOfAccount = codeOfAccount;
 	}
 
 	public String getTechnicalServiceOrganisation() {
@@ -377,6 +481,14 @@ public class CustomerCard {
 	public void setOccupationOfAccount(String occupationOfAccount) {
 		this.occupationOfAccount = occupationOfAccount;
 	}
+
+	public int getCodeOfAccount() {
+		return codeOfAccount;
+	}
+
+	public void setCodeOfAccount(int codeOfAccount) {
+		this.codeOfAccount = codeOfAccount;
+	}
 	
 }
 
@@ -422,6 +534,7 @@ public class CustomerCard {
  * codePost: It's post code of customer.
  * location: It's location that customer have been.
  * occupationOfAccount: It's occupation of account.
+ * 
  * 
  * Returns:
  * ------------
