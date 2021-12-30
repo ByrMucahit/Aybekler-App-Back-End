@@ -8,10 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import aybeklerApp.aybekler.entities.concretes.CustomerCard;
 
 public interface CustomerCardByDto extends JpaRepository<CustomerCard, Integer> {
-	@Query("UPDATE CustomerCard cc SET cc.typeOfCommunicate = ?1")
-	List<CustomerCard> update(
-			String typeOfCommunicate
-			);
+	
 }
 
 /*

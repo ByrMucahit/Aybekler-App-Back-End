@@ -10,18 +10,22 @@ import aybeklerApp.aybekler.core.utilities.results.DataResult;
 import aybeklerApp.aybekler.core.utilities.results.Result;
 import aybeklerApp.aybekler.core.utilities.results.SuccessDataResult;
 import aybeklerApp.aybekler.core.utilities.results.SuccessResult;
+import aybeklerApp.aybekler.dataAccess.abstracts.dao.CustomerCardDao;
 import aybeklerApp.aybekler.dataAccess.abstracts.dto.CustomerCardByDto;
 import aybeklerApp.aybekler.entities.concretes.CustomerCard;
 import aybeklerApp.aybekler.entities.dtos.AllAccountSignalsDto;
+import aybeklerApp.aybekler.entities.dtos.CustomerCardDto;
 @Service
 public class CustomerCardManager implements CustomerCardService {
 
 	private CustomerCardByDto customerCardDto;
+	private CustomerCardDao customerCardDao;
 	
 	@Autowired
-	public CustomerCardManager(CustomerCardByDto customerCardDto) {
+	public CustomerCardManager(CustomerCardByDto customerCardDto, CustomerCardDao customerCardDao) {
 		super();
 		this.customerCardDto = customerCardDto;
+		this.customerCardDao = customerCardDao;
 	}
 	
 	@Override
@@ -38,9 +42,46 @@ public class CustomerCardManager implements CustomerCardService {
 	}
 
 	@Override
-	public Result update(CustomerCard customerCard) {
-		this.customerCardDto.update(customerCard.getTypeOfCommunicate());
+	public Result update(CustomerCardDto customerCardDto,int codeOfAccount) {
+		CustomerCardDto currentCustomerCard = customerCardDao.findById(codeOfAccount).orElseThrow(RuntimeException::new);
+		currentCustomerCard.setAddress1(customerCardDto.getAddress1());
+		currentCustomerCard.setAddress2(customerCardDto.getAddress2());
+		currentCustomerCard.setAtmBranchCode(customerCardDto.getBranchOrCodeOfAtm());
+		currentCustomerCard.setAvenue(customerCardDto.getAvenue());
+		currentCustomerCard.setCity(customerCardDto.getCity());
+		currentCustomerCard.setCodeOfPost(customerCardDto.getCodeOfPost());
+		currentCustomerCard.setCountry(customerCardDto.getCountry());
+		currentCustomerCard.setEmail1(customerCardDto.getEmail1());
+		currentCustomerCard.setEmail2(customerCardDto.getEmail2());
+		currentCustomerCard.setEmail3(customerCardDto.getEmail3());
+		currentCustomerCard.setEmail4(customerCardDto.getEmail4());
+		currentCustomerCard.setEmail5(customerCardDto.getEmail5());
+		currentCustomerCard.setFaksNumber1(customerCardDto.getFaksNumber1());
+		currentCustomerCard.setFaksNumber2(customerCardDto.getFaksNumber2());
+		currentCustomerCard.setIpOfSystem(customerCardDto.getIpOfSystem());
+		currentCustomerCard.setLocation(customerCardDto.getIpOfSystem());
+		currentCustomerCard.setMarkOfSystem(customerCardDto.getMarkOfSystem());
+		currentCustomerCard.setModelOfSystem(customerCardDto.getModelOfSystem());
+		currentCustomerCard.setNeighboorHood(customerCardDto.getNeighboorHood());
+		currentCustomerCard.setNumberOfOutDoor(customerCardDto.getNumberOfOutDoor());
+		currentCustomerCard.setOccupationOfAccount(customerCardDto.getOccupationOfAccount());
+		currentCustomerCard.setPhone1(customerCardDto.getPhone1());
+		currentCustomerCard.setPhone2(customerCardDto.getPhone2());
+		currentCustomerCard.setPhone3(customerCardDto.getPhone3());
+		currentCustomerCard.setSimCardNumber(customerCardDto.getSimCardNumber());
+		currentCustomerCard.setStreet(customerCardDto.getStreet());
+		currentCustomerCard.setSystemOfPhone(customerCardDto.getSystemOfPhone());
+		currentCustomerCard.setTown(customerCardDto.getTown());
+		currentCustomerCard.setTypeOfCommunicate(customerCardDto.getTypeOfCommunicate());
+		
+		customerCardDao.save(currentCustomerCard);
 		return new SuccessResult("Product has been updated");
+	}
+
+	@Override
+	public Result deleteById(int codeOfAccount) {
+		customerCardDto.deleteById(codeOfAccount);
+		return new SuccessResult("Account has been deleted");
 	}
 
 }
