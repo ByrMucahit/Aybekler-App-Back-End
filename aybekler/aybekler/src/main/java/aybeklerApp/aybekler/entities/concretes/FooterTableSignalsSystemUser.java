@@ -1,22 +1,66 @@
 package aybeklerApp.aybekler.entities.concretes;
 
-public class FooterTableSiganlsSystemUser {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Entity
+@Table(name="footertablesignalssystemuser")
+@AllArgsConstructor
+@NoArgsConstructor
+public class FooterTableSignalsSystemUser {
 
 	/* Common variables */
-	private int orderOfPanel;
-	private String fullName;
-	private String task;
+	@Id
+	@Column(name="id_of_account")
+	private int idOfAccount;
+	
+	@Column(name="code_of_account")
+	private int codeOfAccount;
+	
+	@Column(name="register_number")
 	private int registerNumber;
+	
+	@Column(name="order_of_panel")
+	private int orderOfPanel;
+	
+	@Column(name="full_name")
+	private String fullName;
+	
+	@Column(name="task")
+	private String task;
+	
+	@Column(name="closer_family")
 	private String family;
+	
+	@Column(name="phone1")
 	private String phone1;
+	
+	@Column(name="phone2")
 	private String phone2;
+	
+	@Column(name="phone3")
 	private String phone3;
+	
+	@Column(name="phone4")
 	private String phone4;
+	
+	@Column(name="alert")
 	private String alert;
 	
+	public FooterTableSignalsSystemUser() {
+		
+	}
+	
 	/* Constructor  */
-	public FooterTableSiganlsSystemUser(int orderOfPanel, String fullName, String task, int registerNumber,
-			String family, String phone1, String phone2, String phone3, String phone4, String alert) {
+	public FooterTableSignalsSystemUser(int orderOfPanel, String fullName, String task, int registerNumber,
+			String family, String phone1, String phone2, String phone3, String phone4, String alert, int idOfAccount,int codeOfAccount) {
 		super();
 		this.orderOfPanel = orderOfPanel;
 		this.fullName = fullName;
@@ -28,6 +72,8 @@ public class FooterTableSiganlsSystemUser {
 		this.phone3 = phone3;
 		this.phone4 = phone4;
 		this.alert = alert;
+		this.idOfAccount = idOfAccount;
+		this.codeOfAccount = codeOfAccount;
 	}
 
 	public int getOrderOfPanel() {
@@ -110,6 +156,21 @@ public class FooterTableSiganlsSystemUser {
 		this.alert = alert;
 	}
 
+	public int getIdOfAccount() {
+		return idOfAccount;
+	}
+
+	public void setIdOfAccount(int idOfAccount) {
+		this.idOfAccount = idOfAccount;
+	}
+
+	public int getCodeOfAccount() {
+		return codeOfAccount;
+	}
+
+	public void setCodeOfAccount(int codeOfAccount) {
+		this.codeOfAccount = codeOfAccount;
+	}
 }
 
 /*
