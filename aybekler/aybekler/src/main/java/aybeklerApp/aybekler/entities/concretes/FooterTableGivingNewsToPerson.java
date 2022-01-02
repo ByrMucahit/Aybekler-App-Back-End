@@ -1,22 +1,63 @@
 package aybeklerApp.aybekler.entities.concretes;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Entity
+@Table(name="footertablegivingnewsperson")
+@AllArgsConstructor
+@NoArgsConstructor
 public class FooterTableGivingNewsToPerson {
 	
 	/* Common variables */
+	@Id
+	@Column(name="id_of_account")
+	private int idOfAccount;
+	
+	@Column(name="calling_order")
 	private int orderOfPanel;
+	
+	@Column(name="full_name")
 	private String fullName;
+	
+	@Column(name="task")
 	private String task;
+	
+	@Column(name="register_number")
 	private int registerNumber;
+	
+	@Column(name="closer_family")
 	private String family;
+	
+	@Column(name="phone1")
 	private String phone1;
+	
+	@Column(name="phone2")
 	private String phone2;
+	
+	@Column(name="phone3")
 	private String phone3;
+	
+	@Column(name="phone4")
 	private String phone4;
+	
+	@Column(name="alerts")
 	private String alert;
+	
+	public FooterTableGivingNewsToPerson() {
+		
+	}
 	
 	/* Constructor */
 	public FooterTableGivingNewsToPerson(int orderOfPanel, String fullName, String task, int registerNumber,
-			String family, String phone1, String phone2, String phone3, String phone4, String alert) {
+			String family, String phone1, String phone2, String phone3, String phone4, String alert, int idOfAccount) {
 		super();
 		this.orderOfPanel = orderOfPanel;
 		this.fullName = fullName;
@@ -28,6 +69,7 @@ public class FooterTableGivingNewsToPerson {
 		this.phone3 = phone3;
 		this.phone4 = phone4;
 		this.alert = alert;
+		this.idOfAccount = idOfAccount;
 	}
 
 	public int getOrderOfPanel() {
@@ -36,14 +78,6 @@ public class FooterTableGivingNewsToPerson {
 
 	public void setOrderOfPanel(int orderOfPanel) {
 		this.orderOfPanel = orderOfPanel;
-	}
-
-	public String getfullName() {
-		return fullName;
-	}
-
-	public void setfullName(String fullName) {
-		this.fullName = fullName;
 	}
 
 	public String getTask() {
@@ -108,6 +142,22 @@ public class FooterTableGivingNewsToPerson {
 
 	public void setAlert(String alert) {
 		this.alert = alert;
+	}
+
+	public int getIdOfAccount() {
+		return idOfAccount;
+	}
+
+	public void setIdOfAccount(int idOfAccount) {
+		this.idOfAccount = idOfAccount;
+	}
+
+	public String getFullName() {
+		return fullName;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 	
 }
